@@ -10,10 +10,27 @@ public class Node {
 
     public void appendToTail(String data) {
         Node end = new Node(data);
-        Node n = this;
-        while(n.next != null) {
+        Node head = this;
+        while(head.next != null) {
+            head = head.next;
+        }
+        head.next = end;
+    }
+
+    public Node deleteNode(Node head, String data) {
+        Node n = head;
+        if(n.data.equals(data)) {
+            return head.next;
+        }
+
+        while (n.next != null) {
+            if(n.next.data.equals(data)) {
+                n.next = n.next.next;
+                return head;
+            }
             n = n.next;
         }
-        n.next = end;
+
+        return head;
     }
 }
