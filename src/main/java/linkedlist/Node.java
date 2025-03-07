@@ -1,5 +1,8 @@
 package linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Node {
     Node next = null;
     String data;
@@ -33,4 +36,15 @@ public class Node {
 
         return head;
     }
+
+    public List<String> getListNodes() {
+        List<String> list = new ArrayList<>();
+        Node n = this;
+        while(n != null) {
+            list.add(n.data);
+            n = n.next;
+        }
+        return list;
+    }
+
 }
